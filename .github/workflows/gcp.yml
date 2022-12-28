@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: testing-project
-      PROJECT_ID: testing
+      PROJECT_ID: testing-4495
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,7 +25,7 @@ jobs:
 
       - name: Configure Docker Client
         run: |-
-          gcloud auth configure-docker --quiet
+          gcloud auth configure-docker us-central1-docker.pkg.dev/$PROJECT_ID/$IMAGE_NAME --quiet
 
       - name: Push Docker Image to Container Registry (GCR)
         env:
